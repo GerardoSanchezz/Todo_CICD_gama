@@ -27,7 +27,7 @@ pipeline {
             steps {
                 // Aquí colocarías los comandos necesarios para desplegar tu aplicación
                 // Por ejemplo, si estás usando Docker, podrías construir y desplegar contenedores
-                sh 'docker-compose up -d'
+                sh '/usr/local/bin/docker-compose up -d'
             }
         }
     }
