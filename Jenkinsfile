@@ -5,7 +5,7 @@ pipeline {
         stage('Build') {
             steps {
                 // Aquí colocarías los comandos necesarios para construir tu proyecto PHP
-                sh 'composer install'
+                sh 'docker-compose up -d --build'
             }
         }
         stage('Test') {
