@@ -17,7 +17,7 @@ pipeline {
         stage('Test') {
             steps {
                 // Aquí colocarías los comandos necesarios para ejecutar tus pruebas
-                sh 'phpunit'
+                sh 'vendor/bin/phpunit www/app/indexTest.php'
             }
         }
         stage('Deploy') {
