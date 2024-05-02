@@ -32,8 +32,8 @@ pipeline {
                     /usr/local/bin/docker-compose up -d
                     '''
 
-                  sh 'docker tag todo_cicd Carlosveryan/todo_cicd'
-                  sh 'docker push Carlosveryan/todo_cicd'
+                  sh '/opt/homebrew/bin/docker tag todo_cicd carlosveryan/todo_cicd'
+                  sh '/opt/homebrew/bin/docker push carlosveryan/todo_cicd'
             }
         }
     }
