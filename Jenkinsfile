@@ -32,8 +32,15 @@ pipeline {
                     /usr/local/bin/docker-compose up -d
                     '''
 
-                  sh '/opt/homebrew/bin/docker tag todo_cicd carlosveryan/todo_cicd'
-                  sh '/opt/homebrew/bin/docker push carlosveryan/todo_cicd'
+                sh '/opt/homebrew/bin/docker tag todo_cicd-webserver carlosveryan/todo_cicd-webserver:latest'
+                sh '/opt/homebrew/bin/docker tag todo_cicd-phpmyadmin carlosveryan/todo_cicd-phpmyadmin:latest'
+                sh '/opt/homebrew/bin/docker tag redis carlosveryan/redis:latest'
+                sh '/opt/homebrew/bin/docker tag todo_cicd-database carlosveryan/todo_cicd-database:latest'
+
+                sh '/opt/homebrew/bin/docker push carlosveryan/todo_cicd-webserver:latest'
+                sh '/opt/homebrew/bin/docker push carlosveryan/todo_cicd-phpmyadmin:latest'
+                sh '/opt/homebrew/bin/docker push carlosveryan/redis:latest'
+                sh '/opt/homebrew/bin/docker push carlosveryan/todo_cicd-database:latest'
             }
         }
     }
