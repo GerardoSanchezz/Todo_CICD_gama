@@ -261,6 +261,9 @@ It comes with Redis. It runs on default port `6379`.
 We want to empower developers to quickly create creative Applications. Therefore we are providing an easy to set up a local development environment for several different Frameworks and PHP Versions.
 In Production you should modify at a minimum the following subjects:
 
+
+TESTING
+
 - php handler: mod_php=> php-fpm
 - secure mysql users with proper source IP limitations
 
