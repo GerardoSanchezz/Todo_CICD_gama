@@ -8,6 +8,7 @@ pipeline {
                 
                 // Aquí colocarías los comandos necesarios para construir tu proyecto PHP
                 //  sh '/usr/bin/docker-compose up -d --build'
+                sh 'export PATH=$PATH:~/.docker/bin'
                 sh '/usr/local/bin/docker-compose up -d --build'
             }
         }
