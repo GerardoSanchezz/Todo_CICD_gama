@@ -16,10 +16,11 @@ pipeline {
             }
         }
         stage('Test') {
-            steps {
-                // Aquí colocarías los comandos necesarios para ejecutar tus pruebas
-                sh ' export PATH=$PATH:/opt/homebrew/bin/php'
-                sh ' vendor/bin/phpunit tests'
+           steps {
+                // Add PHP path to the PATH environment variable
+                withEnv(['PATH+PHP=/opt/homebrew/bin']) {
+                    sh './vendor/bin/phpunit tests/'
+                }
             }
         }
         stage('Deploy') {
