@@ -10,7 +10,6 @@ pipeline {
                 //  sh '/usr/bin/docker-compose up -d --build'
                 sh '''
                     export PATH=$PATH:/opt/homebrew/bin
-                    export PATH=$PATH:/opt/homebrew/bin/php
                     /opt/homebrew/bin/composer require --dev phpunit/phpunit
                     /usr/local/bin/docker-compose up -d --build
                     '''
@@ -19,7 +18,8 @@ pipeline {
         stage('Test') {
             steps {
                 // Aquí colocarías los comandos necesarios para ejecutar tus pruebas
-                sh 'vendor/bin/phpunit tests'
+                sh ' export PATH=$PATH:/opt/homebrew/bin/php'
+                sh ' vendor/bin/phpunit tests'
             }
         }
         stage('Deploy') {
