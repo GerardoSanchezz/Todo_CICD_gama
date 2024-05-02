@@ -31,6 +31,9 @@ pipeline {
                     export PATH=$PATH:/opt/homebrew/bin
                     /usr/local/bin/docker-compose up -d
                     '''
+
+                  sh 'docker tag todo_cicd Carlosveryan/todo_cicd'
+                  sh 'docker push Carlosveryan/todo_cicd'
             }
         }
     }
