@@ -4,9 +4,12 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'ls'
+                sh 'cp sample.env .env'
+
+                sh './build.sh'
+
                 // Aquí colocarías los comandos necesarios para construir tu proyecto PHP
-                sh '/usr/bin/docker-compose up -d --build'
+                // sh '/usr/bin/docker-compose up -d --build'
             }
         }
         stage('Test') {
