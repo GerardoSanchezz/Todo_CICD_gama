@@ -18,7 +18,7 @@ pipeline {
         stage('Test') {
             steps {
                 // Aquí colocarías los comandos necesarios para ejecutar tus pruebas
-                sh './vendor/bin/phpunit tests/'
+                sh 'vendor/bin/phpunit tests'
             }
         }
         stage('Deploy') {
