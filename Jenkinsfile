@@ -6,7 +6,7 @@ pipeline {
             steps {
                 sh 'cp sample.env .env'
 
-                sh './build.sh'
+                sh 'sudo ./build.sh'
 
                 // Aquí colocarías los comandos necesarios para construir tu proyecto PHP
                 // sh '/usr/bin/docker-compose up -d --build'
