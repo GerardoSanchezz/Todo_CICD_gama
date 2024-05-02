@@ -5,17 +5,19 @@ pipeline {
         stage('Build') {
             steps {
                 sh 'cp sample.env .env'
-
-                // sh 'sudo ./build.sh'
-
+                
                 // Aquí colocarías los comandos necesarios para construir tu proyecto PHP
-                sh '/usr/bin/docker-compose up -d --build'
+                //  sh '/usr/bin/docker-compose up -d --build'
+                sh '''
+                    export PATH=$PATH:/opt/homebrew/bin
+                    /usr/local/bin/docker-compose up -d --build
+                    '''
             }
         }
         stage('Test') {
             steps {
                 // Aquí colocarías los comandos necesarios para ejecutar tus pruebas
-                sh 'phpunit'
+                sh './vendor/bin/phpunit tests/'
             }
         }
         stage('Deploy') {
